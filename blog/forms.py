@@ -12,4 +12,4 @@ class UserRegistrationForm(UserCreationForm):
 class ArticleForm(forms.ModelForm):
 	class Meta():
 		model=Article
-		fields=['title','article']
+		fields=['title','Description',"Image"]

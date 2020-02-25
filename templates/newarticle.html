@@ -19,7 +19,7 @@
     </div>
   </div>
 </nav>
-<form method="POST">{% csrf_token %}
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
 {{ form.as_p }}
 <button type="Submit" class="btn btn-primary">POST</button>
 <a href="/blog/dashboard" class="btn btn-outline-danger">Discard</a>

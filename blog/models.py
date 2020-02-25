@@ -4,7 +4,8 @@ class Article(models.Model):
 	user=models.ForeignKey(User,on_delete=models.CASCADE)
 	articledate=models.DateField()
 	title=models.CharField(max_length=1000)
-	article=models.CharField(max_length=10000)
+	Description=models.CharField(max_length=10000)
+	Image=models.ImageField(upload_to="article_image",blank=False)
 	def __str__(self):
 		return self.title
 # Create your models here.

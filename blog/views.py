@@ -18,11 +18,10 @@ def register(request):
 	
 	return render(request,"register.html",{"form":form})
 def dashboard(request):
-
 	return render(request,"dashboard.html")
 def newarticle(request):
 	if request.method=="POST":
-		form=ArticleForm(request.POST)
+		form=ArticleForm(request.POST,request.FILES)
 		if form.is_valid():
 			form1=form.save(commit=False)
 			form1.user=request.user
