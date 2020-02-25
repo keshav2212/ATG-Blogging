@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dahboard</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+<h2>Hello {{user}}<h2>
+{% else %}
+<h2>Hello</h2>
+{% endif %}
+<a href="/blog/logout">Logout</a>
+<a href="/blog/newarticle">New Article</a>
+</body>
+</html>
