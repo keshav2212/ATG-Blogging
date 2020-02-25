@@ -33,5 +33,7 @@ def newarticle(request):
 	else:
 		form=ArticleForm()
 	return render(request,"newarticle.html",{'form':form})
+def deletearticle(request,id):
+	pass
 
 			# Create your views here.

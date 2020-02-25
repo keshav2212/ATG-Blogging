@@ -10,4 +10,4 @@ class UserRegistrationForm(UserCreationForm):
 class ArticleForm(forms.ModelForm):
 	class Meta():
 		model=Article
-		fields=['article']
+		fields=['title','article']

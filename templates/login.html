@@ -1,17 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-</head>
-<body>
+
+{% extends 'base.html' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Hello</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/blog">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <a href="/blog/register" class="btn btn-outline-primary my-2 my-sm-0">Register</a>
+     
+    </div>
+  </div>
+</nav>
 {% if messages %}
 {% for message in messages %}
-{{message}}
+<div class="alert alert-success" role="alert">
+ {{ message }}
+</div>
 {% endfor %}
 {% endif %}
+<div>
 <form method="POST">{% csrf_token %}
-	{{form.as_p}}
-	<button type="submit">Login</button>
-</form>
-</body>
-</html>
+	<p>{{form.as_p}}</p>
+	<button type="submit" class="btn btn-primary ml-23%">Login</button>
+</form></div>
+{% endblock %}
