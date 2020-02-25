@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path,include
 from blog import views
+from django.conf.urls import url
 from django.contrib.auth.views import LoginView,LogoutView
 urlpatterns = [
     path('',views.home),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('dashboard/',views.dashboard),
     path('newarticle/',views.newarticle),
     path('delete/<int:id>',views.deletearticle,name="deletearticle"),
+    url(r'^captcha/', include('captcha.urls')),
 ]

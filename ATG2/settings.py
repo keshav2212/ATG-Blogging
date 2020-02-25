@@ -27,10 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+generator = CAPTCHA_CHALLENGE_FUNCT
 
 # Application definition
 
 INSTALLED_APPS = [
+    'captcha',
     'blog',
     'django.contrib.admin',
     'django.contrib.auth',
