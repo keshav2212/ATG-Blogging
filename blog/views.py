@@ -34,6 +34,9 @@ def newarticle(request):
 		form=ArticleForm()
 	return render(request,"newarticle.html",{'form':form})
 def deletearticle(request,id):
-	pass
+	a=Article.objects.get(pk=id)
+	a.delete()
+	messages.success(request,"Article Has Been Successfully Deleted!")
+	return redirect('/blog/dashboard')
 
 			# Create your views here.

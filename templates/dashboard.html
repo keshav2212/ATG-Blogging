@@ -25,9 +25,9 @@
 </div>
 {% endfor %}
 {% endif %}
-Published Articles
 <ol>
 <div>
+	{% if user.article_set.all %}
 	{% for article in user.article_set.all %}
 <div class="card mt-3" style="width: 18rem;">
   <div class="card-body">
@@ -38,6 +38,10 @@ Published Articles
   </div>
 </div>
 {% endfor %}
+{% else %}
+
+<h2 class="text-muted">No Article Posted Yet.</h2>
+{% endif %}
 </div>
 </ol>
 {% endblock %}
