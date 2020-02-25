@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Dahboard</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block body%}
 {% if user.is_authenticated %}
 <h2>Hello {{user}}<h2>
 {% else %}
 <h2>Hello</h2>
 {% endif %}
-<a href="/blog/logout">Logout</a>
-<a href="/blog/newarticle">New Article</a>
-</body>
+{% if messages %}
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+{% endif %}
+<a href="/blog/logout">Logout</a>&nbsp&nbsp
+<a href="/blog/newarticle">New Article</a></br></br>
+Published Articles
+<ol>
+<div>{% for article in user.article_set.all %}
+<li>
+{{ article.article }}</li>
+{% endfor %}
+</div></ul>
+{% endblock %}
 </html>
