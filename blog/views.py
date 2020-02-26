@@ -3,8 +3,17 @@ from .models import Article
 from .forms import UserRegistrationForm,ArticleForm
 from django.contrib import messages
 from datetime import date
+from django.contrib.auth.models import User
 def home(request):
-	return render(request,"index.html")
+	user=request.GET.get("q")
+	cont=0
+	if user:
+		try:
+			User.objects.get(username=user)
+			cont=1
+		except:
+			cont=2
+	return render(request,"index.html",{"cont":cont,'search':user})
 def register(request):
 	if request.method=="POST":
 		form=UserRegistrationForm(request.POST)
@@ -37,5 +46,7 @@ def deletearticle(request,id):
 	a.delete()
 	messages.success(request,"Article Has Been Successfully Deleted!")
 	return redirect('/blog/dashboard')
-
+def otherarticle(request,search):
+	search=User.objects.get(username=search)
+	return render(request,'otherarticle.html',{'search':search})
 			# Create your views here.

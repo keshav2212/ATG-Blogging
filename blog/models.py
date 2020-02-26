@@ -6,6 +6,7 @@ class Article(models.Model):
 	title=models.CharField(max_length=1000)
 	Description=models.CharField(max_length=10000)
 	Image=models.ImageField(upload_to="article_image",blank=False)
+	Public=models.BooleanField(default=False)
 	def __str__(self):
 		return self.title
 # Create your models here.

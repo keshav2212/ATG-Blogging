@@ -11,4 +11,5 @@ urlpatterns = [
     path('newarticle/',views.newarticle),
     path('delete/<int:id>',views.deletearticle,name="deletearticle"),
     url(r'^captcha/', include('captcha.urls')),
+    path('otherarticle/<str:search>',views.otherarticle),
 ]
